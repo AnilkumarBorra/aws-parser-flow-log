@@ -1,9 +1,9 @@
 # Flow Log Parser
 
-This Python program parses AWS VPC flow logs and maps each row to a tag based on a lookup table. The lookup table is a CSV file that defines mappings between destination ports, protocols, and tags.
+This Python program parses flow logs and maps each row to a tag based on a lookup table. The lookup table is a CSV file that defines mappings between destination ports, protocols, and tags.
 
 ## Assumptions
-- The program only supports the **default log format** for AWS flow logs.
+- The program only supports the **default log format** for flow logs.
 - The **only supported version** of the flow logs is **version 2**.
 - The lookup table contains mappings for destination ports and protocols, and it's assumed that protocols are case-insensitive.
 
@@ -13,7 +13,7 @@ This Python program parses AWS VPC flow logs and maps each row to a tag based on
 - Handles both **TCP** and **UDP** protocols.
 - Tags flow logs based on port-protocol combinations.
 - Provides counts of matches for each tag and each port/protocol combination.
-- Flow logs with no matching tag are categorized as "Untagged".
+- Flow logs with no matching tag are categorized as "Unknown tagged".
 
 ## Directory Structure
 ```plaintext
@@ -38,7 +38,7 @@ This Python program parses AWS VPC flow logs and maps each row to a tag based on
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/flow-log-parser.git
+git clone https://github.com/AnilkumarBorra/flow-log-parser.git
 cd flow-log-parser
 ```
 
@@ -51,7 +51,7 @@ cd flow-log-parser
    python app.py
 ```
 
-4. The program will output the following:
+4. The program will output the following(check output folder):
 
     A count of matches for each tag.
     A count of matches for each port/protocol combination.
@@ -89,6 +89,7 @@ Tests Performed
 
 * `Flow log format`: The program was tested with flow logs in the default format to ensure correct parsing.
 * `Large file handling`: The program was tested with large flow log files (up to 10MB) to ensure it can handle larger datasets.
+* `Lookup table handling`: The program was tested mappings in the lookup table (up to 10,000) to ensure it can handle data records limit.
 * `Edge cases`:
     * Logs with unmatched ports or protocols are correctly categorized as "Unknown tagged".
     * Case insensitivity for protocol names was validated.
