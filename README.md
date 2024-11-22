@@ -21,7 +21,7 @@ This Python program parses flow logs and maps each row to a tag based on a looku
 ├── input/flow_logs.txt                 # Example flow log file
 ├── input/lookup_table.csv              # Example lookup table file
 ├── output/port_protocol_counts.csv     # Output port protocol count file
-├── output/tag_counts.csv
+├── output/tag_counts.csv               # Output tag count file
 ├── parser.py                           # For process example data using Python script
 ├── app.py                              # For run main Python script
 └── README.md                           # Info file
@@ -38,7 +38,7 @@ This Python program parses flow logs and maps each row to a tag based on a looku
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/AnilkumarBorra/flow-log-parser.git
+git clone https://github.com/AnilkumarBorra/aws-flow-log-parser.git
 cd flow-log-parser
 ```
 
